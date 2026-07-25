@@ -70,7 +70,7 @@ class CircularMotionAnalyzer:
         if elapsed >= 2.0 and len(self.calibration_samples) > 10:
             samples = np.array(self.calibration_samples)
             center = np.mean(samples, axis=0)
-            distances = np.linalg_norm(samples - center, axis=1)
+            distances = np.linalg.norm(samples - center, axis=1)
             max_jitter = np.max(distances)
 
             # Set noise threshold with safety margin
@@ -114,7 +114,7 @@ class CircularMotionAnalyzer:
         cx, cy = centroid[0], centroid[1]
 
         # Calculate average radius from centroid
-        radii = np.linalg_norm(coords - centroid, axis=1)
+        radii = np.linalg.norm(coords - centroid, axis=1)
         avg_radius = np.mean(radii)
 
         # Ignore tiny movements below noise threshold
